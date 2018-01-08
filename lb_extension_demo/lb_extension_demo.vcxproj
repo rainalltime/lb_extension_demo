@@ -76,6 +76,10 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>../../../build/wnt_vs2013/debug/include/;D:\work\1.0.1_2017020710\lb_win32\include;D:\work\1.0.1_2017020710\lb_win32\src\extn_inf;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)$(Configuration)\win32\ipIntercom\bin</OutDir>
+    <IntDir>$(SolutionDir)$(Configuration)\win32\ipIntercom\bin</IntDir>
+    <LibraryPath>../Debug;..\Debug\win32\ipIntercom\bin;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -91,11 +95,12 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>lbintercom_lib.lib;win32_lb_netio.lib;lb_IPIntercom_win32_lib.lib</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
